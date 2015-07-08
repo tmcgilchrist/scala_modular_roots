@@ -13,14 +13,15 @@ trait SetSig {
   def member(e: Elem, s: Set): Boolean
 }
 
+sealed trait Set2[+Elem]
+case object Leaf extends Set2[Nothing]
+case class Branch[Elem](left: Set2[Elem], elem: Elem, right: Set2[Elem]) extends Set2[Elem]
+
 abstract class UnbalancedSet extends SetSig {
   val Element: Ordering
   type Elem = Element.T
 
-  sealed trait Set
-  case object Leaf extends Set
-  case class Branch(left: Set, elem: Elem, right: Set) extends Set
-
+  type Set = Set2[Elem]
   val empty = Leaf
 
   def member(x: Elem, s: Set): Boolean = s match {

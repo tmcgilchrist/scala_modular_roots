@@ -12,7 +12,7 @@ how those parts compare to similar concepts in other langauges.
 To me the most interesting part of Scala is how it has both OO and FP
 influences. This leads to a somewhat unique place for it. The only other popular
 (sort of) language that has a similar mix of OO and FP is OCaml. Which I'm also
-interested in.
+interested in. I'm that sort of person, contrarian maybe.
 
 So when after a particular Scala Syd or perhaps it was FP-SYD, Tony Sloane
 mentioned that there was a correspondence between Scala and OCaml I became

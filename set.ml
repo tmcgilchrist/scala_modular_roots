@@ -1,7 +1,7 @@
 module type ORDERED = sig
   type t
   val compare : t -> t -> int
-end
+end;;
 
 module type SET = sig
   type elt
@@ -9,7 +9,7 @@ module type SET = sig
   val empty : t
   val insert : elt -> t -> t
   val member : elt -> t -> bool
-end
+end;;
 
 module UnbalancedSet (Element : ORDERED) : (SET with type elt = Element.t) = struct
   type elt = Element.t
@@ -29,16 +29,16 @@ module UnbalancedSet (Element : ORDERED) : (SET with type elt = Element.t) = str
     | T(a, y, b) when Element.compare x y < 0 -> T(insert x a, y, b)
     | T(a, y, b) when Element.compare x y > 0 -> T(a, y, insert x b)
     | T(a, y, b) as s -> s
-end
+end;;
 
-module IntOrdered = struct
+module IntOrdering = struct
   type t = int
 
   let compare = Pervasives.compare
-end
+end;;
 
-module S = UnbalancedSet(IntOrdered)
+module S = UnbalancedSet(IntOrdering);;
 
 let r = S.(insert 1 empty)
 S.(member 1 r)  (* true *)
-S.(memeber 2 r) (* false *)
+S.(member 2 r) (* false *)
