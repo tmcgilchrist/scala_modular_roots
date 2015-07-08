@@ -1,3 +1,6 @@
+// This implementation of ML Modules in Scala uses type members.
+// In using type parameters we get a similar effect as Generative Functors
+// in OCaml.
 trait Ordering {
   type T
 

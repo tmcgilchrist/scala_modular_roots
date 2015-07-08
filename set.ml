@@ -11,6 +11,10 @@ module type SET = sig
   val member : elt -> t -> bool
 end;;
 
+(*
+Note: This is an applicative functor, rather than a generative functor.
+ *)
+
 module UnbalancedSet (Element : ORDERED) : (SET with type elt = Element.t) = struct
   type elt = Element.t
   type tree = E | T of tree * elt * tree
